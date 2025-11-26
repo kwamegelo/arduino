@@ -1,3 +1,25 @@
+/*
+  ESP32 Wi-Fi LED Controller
+  Author: Angelo
+
+  Description:
+  This project creates a simple web-based LED controller using an ESP32.
+  When the system powers on, it connects to a predefined Wi-Fi network.
+  Any device on the same network can access the ESP32’s IP address
+  to control the LED state (ON / OFF).
+
+  Features:
+  - Automatic Wi-Fi connection
+  - Local web server hosted on the ESP32
+  - Web interface for toggling LED state
+  - Status feedback in browser
+
+  Hardware:
+  - ESP32 Dev Board
+  - LED + 220Ω resistor (connected to GPIO pin)
+*/
+
+
 #include <WiFi.h>
 #include <WebServer.h>
 #include <ArduinoJson.h>
@@ -535,4 +557,5 @@ void turnOnAllLEDs() {
     ledcWrite(LED_PINS[i], ledStates[i].brightness);
   }
   Serial.println("All LEDs turned ON");
+
 }
